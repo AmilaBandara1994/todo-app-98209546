@@ -1,0 +1,31 @@
+.notification{
+    width: 100%;
+    padding: 1rem;
+    box-shadow: var(--box-shadow);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background-image: url('../assets/icons/Vector.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.title{
+    font-size: var(--large-large);
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+.description{
+    font-size: var(--large-small);
+    color: var(--text-color-secondary);
+}
+
+.link{
+    font-size: var(--large-small);
+    color: var(--text-color-danger);
+    text-decoration: underline;
+}
