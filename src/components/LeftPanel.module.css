@@ -1,0 +1,33 @@
+.left_panel{
+    background-color: var(--background-color-primary);
+}
+.left_panel_header{
+    background-color:  var(--background-color-primary-transparent);
+    color: var(--text-color-light);
+    font-size: 1.5rem;
+    font-weight: 600;
+    width: 100%;
+    padding: 0.5rem 2rem;
+    height: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.left_nav{
+    padding:4rem 1rem ;
+    font-size: 2rem;
+    height: auto;
+}
+.left_nav ul{
+}
+.left_nav ul li{
+    width: 100%;
+
+    font-size: 1rem;
+    display: flex;
+    column-gap: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    background-color: var(--background-color-primary-transparent);
+    color: var(--text-color-light);
+}
