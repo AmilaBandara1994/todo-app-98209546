@@ -1,5 +1,6 @@
 .left_panel{
     background-color: var(--background-color-primary);
+    height: 100vh;
 }
 .left_panel_header{
     background-color:  var(--background-color-primary-transparent);
@@ -16,7 +17,7 @@
 .left_nav{
     padding:4rem 1rem ;
     font-size: 2rem;
-    height: auto;
+    height: 100%;
 }
 .left_nav ul{
 }

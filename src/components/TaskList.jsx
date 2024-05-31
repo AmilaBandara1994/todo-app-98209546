@@ -1,14 +1,16 @@
-import {React, useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import Task from './Task'
 import CardLayout from './CardLayout'
 import Spinner from './Spinner';
 import css from './TaskList.module.css'
 import Pagination from '../utils/Pagination';
+import TaskContext from '../context/TaskContext';
 
 const TaskList = () => {
 
   const [tasks, setTasks]  = useState([]);
   const [loading, setLoading] = useState(true);
+  let [setData] = useContext(TaskContext);
 
   // pagination
   const [currentPage, setCurrentPage] = useState(1);
@@ -30,6 +32,26 @@ const TaskList = () => {
     if(currentPage <  Math.ceil(tasks.length / postPerPage))
     setCurrentPage(currentPage+1)
   };
+  const chartdata =[];
+  const addtochart = ()=>{
+    let high = 0;
+    let medium =0;
+    let low = 0;
+    tasks.map((data)=>{
+        if(data.priority === "HIGH"){ 
+          high = high+1};
+        if(data.priority === "MEDIUM"){
+           medium  = medium + 1
+          };
+        if(data.priority === "LOW") {
+          low = low+1
+        };
+    })
+  chartdata.push({name:"HIGH", value: high});
+  chartdata.push({name:"MEDIUM", value: medium});
+  chartdata.push({name:"LOW", value: low});
+  setData =chartdata;
+  }
 
   useEffect(() =>{
     const fetchTasks = async () => {
@@ -44,8 +66,10 @@ const TaskList = () => {
       }
     }
     fetchTasks();
+    addtochart();
   },[]);
-
+  
+  // useContext(TaskContext(chartdata));
   const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
 
   function date(dateString) {
