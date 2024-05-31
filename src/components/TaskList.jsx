@@ -21,6 +21,16 @@ const TaskList = () => {
   //change page
   const paginate =(pageNumber) => setCurrentPage(pageNumber);
 
+  const prev =() => {
+    if(currentPage > 1){
+      setCurrentPage(currentPage-1)
+    }
+  };
+  const nextPage =() => {
+    if(currentPage <  Math.ceil(tasks.length / postPerPage))
+    setCurrentPage(currentPage+1)
+  };
+
   useEffect(() =>{
     const fetchTasks = async () => {
       try {
@@ -36,6 +46,15 @@ const TaskList = () => {
     fetchTasks();
   },[]);
 
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  function date(dateString) {
+    let dateObject= new Date(dateString);
+    
+    dateObject = months[dateObject.getMonth()] + " " + dateObject.getDate();
+    return dateObject;
+  }
+
   return (
     <CardLayout name='Tasks'>
                 { loading ? (
@@ -43,7 +62,13 @@ const TaskList = () => {
                     ):(
                     <>
                       { currentPosts.map((task)=>(
-                        <Task key={task.id}  priority={task.priority} description={task.todo} status={task.completed} date={task.createdAt} />
+                        <Task 
+                        key={task.id} 
+                        priority={task.priority} 
+                        description={task.todo} 
+                        status={task.completed} 
+                        date={ date(task.createdAt)} 
+                        />
                       ))
                       
                       }
@@ -55,7 +80,11 @@ const TaskList = () => {
                   <Pagination  
                   postPerPage={postPerPage} 
                   totalPosts={tasks.length} 
-                  paginate={paginate} />
+                  paginate={paginate} 
+                  previous={prev} 
+                  next={nextPage} 
+                  
+                  />
                 
                 </div>
     </CardLayout>

@@ -13,7 +13,7 @@
     justify-content: flex-start;
 
 }
-img{
+.img_task{
     max-width: 20px;
     max-height: 20px;
 }
@@ -26,6 +26,7 @@ img{
 }
 .description{
     font-size: 1rem;
+    font-weight: 400;
 }
 
 

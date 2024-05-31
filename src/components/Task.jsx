@@ -13,7 +13,7 @@ const Task = ({priority="MEDIUM",description='Contract #00124 need John Beige’
     <div className={css.task}>
         <div className={css.left}>
 
-            { priority === 'HIGH' ?<img src={priority_high} alt="Priority SVG" /> : priority === 'MEDIUM' ? <img src={priority_medium} alt="Priority SVG" /> :<img src={priority_low} alt="Priority SVG" /> }
+            { priority === 'HIGH' ?<img className={css.img_task} src={priority_high} alt="Priority SVG" /> : priority === 'MEDIUM' ? <img className={css.img_task} src={priority_medium} alt="Priority SVG" /> :<img  className={css.img_task} src={priority_low} alt="Priority SVG" /> }
             
             <div className={css.description}>
                 {description}
@@ -25,8 +25,8 @@ const Task = ({priority="MEDIUM",description='Contract #00124 need John Beige’
                 {status ? 'Done':'In-Progress'}
             </div>
             <div className={css.date}>
-                {/* { date} */}
-                Sep 16
+                { date}
+                {/* Sep 16 */}
             </div>
         </div>
     </div>
